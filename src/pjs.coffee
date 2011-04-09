@@ -20,12 +20,19 @@ List = (head, tail) ->
   parts: -> [head, tail]
   first: -> head
   rest: -> tail
+  take: (n) ->
+    return new List(head) if n == 1
+    return undefined if(n == 0)
+    return undefined if(!tail)
+    tail.take(n-1).cons(head)
   cons: (x) -> new List(x, this)
   toArray: ->
     if(tail)
       t = tail.toArray()
       t.unshift(head)
       t
+    else
+      [head]
   reverse: ->
     return this if length == 1
     l = new List(head)
@@ -34,3 +41,10 @@ List = (head, tail) ->
       l = l.cons(t.first())
       t = t.rest()
     l
+  toString: ->
+    '(' + @toArray().join(',') + ')'
+List.fromArray = (a) ->
+  c = undefined
+  for i in [(a.length - 1)..0] by -1
+    c = new List(a[i], c)
+  c

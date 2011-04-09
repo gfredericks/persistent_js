@@ -18,3 +18,11 @@ $(document).ready ->
     equals(b.first(), 4)
     equals(b.reverse().first(), 7)
     equals(a.first(), a.reverse().first())
+
+    a = List.fromArray([1,3,4])
+    equals(a.toString(), "(1,3,4)")
+
+    a = (2*x for x in [1..500])
+    b = List.fromArray(a)
+    equals(b.length(), 500)
+    deepEqual(b.take(5).toArray(), [2,4,6,8,10])
