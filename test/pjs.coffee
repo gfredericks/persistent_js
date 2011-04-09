@@ -1,3 +1,3 @@
-test('easy stuff', ->
-  ok('tommy'))
-
+$(document).ready(->
+  test('easy stuff', -> ok('tommy'))
+)

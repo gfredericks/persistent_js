@@ -1,4 +1,7 @@
 task :build do
+  if(Dir.glob('jcoffee*').empty?)
+    `wget https://github.com/downloads/yeungda/jcoffeescript/jcoffeescript-1.0.jar --no-check-certificate`
+  end
   `mkdir -p target`
   `rm -rf target/*`
   Dir.glob("**/*.coffee").each do |path|
@@ -8,7 +11,7 @@ task :build do
     end
     puts "Building #{path}..."
     js = path.sub(/\.coffee$/,'.js').sub(/^src\//,'')
-    `cat #{path} | java -jar jcoffeescript-1.0.jar > target/#{js}`
+    `java -jar jcoffeescript-1.0.jar < #{path} > target/#{js}`
   end
 end
 
