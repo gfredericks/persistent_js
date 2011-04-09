@@ -11,7 +11,7 @@ task :build do
     end
     puts "Building #{path}..."
     js = path.sub(/\.coffee$/,'.js').sub(/^src\//,'')
-    `java -jar jcoffeescript-1.0.jar < #{path} > target/#{js}`
+    `java -jar jcoffeescript-1.0.jar --bare < #{path} > target/#{js}`
   end
 end
 
