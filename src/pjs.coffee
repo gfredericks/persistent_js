@@ -1,4 +1,15 @@
 PJS = (
+  tree = (args...) ->
+    size = switch args.length
+      when 0
+        0
+      when 1
+        node = args[0]
+        1
+      when 2
+        [node,left] = args[0]
+        [left,right] = args
+        1 + 
   # TYPES = ["TUPLE", "LIST", "VECTOR", "MAP", "SET"]
   tuple = (args...) ->
     ->
