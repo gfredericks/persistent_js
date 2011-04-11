@@ -9,7 +9,7 @@ PJS = (
       when 2
         [node,left] = args[0]
         [left,right] = args
-        1 + 
+        1 + 2
   # TYPES = ["TUPLE", "LIST", "VECTOR", "MAP", "SET"]
   tuple = (args...) ->
     ->
